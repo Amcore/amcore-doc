@@ -11,13 +11,6 @@ module.exports = {
         text: 'Home',
         link: '/'
       }, {
-        text: '你不知道的JavaScript',
-        items: [{
-          text: 'JS中的this',
-          link: '/js/this',
-          link: '/js/promise'
-        }]
-      }, {
         text: 'Vue',
         items: [{
           text: 'Vue',
@@ -48,6 +41,21 @@ module.exports = {
           link: '/git/use',
         }]
       }]
+    }, {
+      text: '你不知道的JavaScript',
+      items: [{
+        text: 'JS中的this',
+        link: '/js/this',
+      }, {
+        text: 'promise',
+        link: '/js/promise'
+      }, {
+        text: 'async',
+        link: '/js/async'
+      }, {
+        text: 'Generator',
+        link: '/js/generator'
+      }]
     }],
     sidebar: [{
       title: '你不知道的Javascript',
@@ -55,7 +63,9 @@ module.exports = {
       children: [
         '/js/',
         '/js/this',
-        '/js/promise'
+        '/js/promise',
+        '/js/async',
+        '/js/generator'
       ]
     }, {
       title: 'Vue',
