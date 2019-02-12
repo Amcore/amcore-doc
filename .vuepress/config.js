@@ -14,31 +14,40 @@ module.exports = {
         text: 'Vue',
         items: [{
           text: 'Vue',
-          link: '/vue/',
+          link: '/vue/'
         }, {
           text: '双向绑定原理',
-          link: '/vue/binding',
+          link: '/vue/binding'
         }, {
           text: 'render函数',
-          link: '/vue/render',
+          link: '/vue/render'
         }]
       }, {
         text: 'HTTP',
         items: [{
           text: 'http',
-          link: '/http/',
+          link: '/http/'
         }, {
           text: 'http转态码',
-          link: '/vue/status',
+          link: '/vue/status'
+        }]
+      }, {
+        text: 'HTML',
+        items: [{
+          text: '盒子模型',
+          link: '/html/box'
+        }, {
+          text: 'meta标签',
+          link: '/html/box'
         }]
       }, {
         text: '工具使用',
         items: [{
           text: 'Git原理',
-          link: '/git/',
+          link: '/git/'
         }, {
           text: 'Git使用',
-          link: '/git/use',
+          link: '/git/use'
         }]
       }]
     }, {
@@ -55,6 +64,12 @@ module.exports = {
       }, {
         text: 'Generator',
         link: '/js/generator'
+      }, {
+        text: 'module',
+        link: '/js/module'
+      }, {
+        text: '冒泡排序动画',
+        link: '/js/sortAnimate'
       }]
     }],
     sidebar: [{
@@ -65,7 +80,9 @@ module.exports = {
         '/js/this',
         '/js/promise',
         '/js/async',
-        '/js/generator'
+        '/js/generator',
+        '/js/module',
+        '/js/sortAnimate'
       ]
     }, {
       title: 'Vue',
@@ -81,6 +98,13 @@ module.exports = {
       children: [
         '/http/',
         '/http/status'
+      ]
+    }, {
+      title: 'HTML',
+      collapsable: false,
+      children: [
+        '/html/box',
+        '/html/meta',
       ]
     }, {
       title: '工具使用',
