@@ -38,7 +38,7 @@ module.exports = {
           link: '/html/box'
         }, {
           text: 'meta标签',
-          link: '/html/box'
+          link: '/html/meta'
         }]
       }, {
         text: '工具使用',
@@ -68,6 +68,12 @@ module.exports = {
         text: 'module',
         link: '/js/module'
       }, {
+        text: '原型链',
+        link: '/js/prototype'
+      }, {
+        text: '模拟call、apply',
+        link: '/js/call_apply'
+      }, {
         text: '冒泡排序动画',
         link: '/js/sortAnimate'
       }]
@@ -82,6 +88,8 @@ module.exports = {
         '/js/async',
         '/js/generator',
         '/js/module',
+        '/js/prototype',
+        '/js/call_apply',
         '/js/sortAnimate'
       ]
     }, {
