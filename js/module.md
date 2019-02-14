@@ -4,6 +4,18 @@ lang: zh-CN
 ---
 
 在ES6 Module出现之前，模块化一直是前端开发者讨论的重点，面对日益增长的需求和代码，需要一种方案来将臃肿的代码拆分成一个个小模块，从而推出了AMD,CMD和CommonJs这3种模块化方案，前者用在浏览器端，后面2种用在服务端，直到ES6 Module出现
+模块化
+
+模块化开发在现代开发中已是必不可少的一部分，它大大提高了项目的可维护、可拓展和可协作性。通常，我们 在浏览器中使用 ES6 的模块化支持，在 Node 中使用 commonjs 的模块化支持。
+
+* 分类:
+  * es6: import / exports
+  * commonjs: require / module.exports / exports
+  * amd: require / defined
+* require与import的区别
+  * require支持 动态导入，import不支持，正在提案 (babel 下可支持)
+  * require是 同步 导入，import属于 异步 导入
+  * require是 值拷贝，导出值变化不会影响导入值；import指向 内存地址，导入值会随导出值而变化
 
 :::tip 提示
 ES6 Module默认目前还没有被浏览器支持，需要使用babel
