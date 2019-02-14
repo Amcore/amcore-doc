@@ -3,25 +3,48 @@ title: JS
 lang: zh-CN
 ---
 
-### JS
----
+###  原型 / 构造函数 / 实例（见prototype）
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+### 闭包
+闭包属于一种特殊的作用域，称为 静态作用域。它的定义可以理解为: 父函数被销毁 的情况下，返回出的子函数的`[[scope]]`中仍然保留着父级的单变量对象和作用域链，因此可以继续访问到父级的变量对象，这样的函数称为闭包。
 
-:tada: :100:
+* 闭包会产生一个很经典的问题:
+  * 多个子函数的[[scope]]都是同时指向父级，是完全共享的。因此当父级的变量对象被修改时，所有子函数都受到影响。
+* 解决
+  * 变量可以通过 函数参数的形式 传入，避免使用默认的[[scope]]向上查找
+  * 使用setTimeout包裹，通过第三个参数传入
+  * 使用 块级作用域，让变量成为自己上下文的属性，避免共享
 
-::: tip
-This is a tip
+### script 引入方式
+  * html 静态`<script>`引入
+  * js 动态插入`<script>`
+:::tip 加载
+* `<script defer>`: 异步加载，元素解析完成后执行
+* `<script async>`: 异步加载，与元素渲染并行执行
 :::
 
-::: warning
-This is a warning
-:::
+### 对象的拷贝
+* 浅拷贝: 以赋值的形式拷贝引用对象，仍指向同一个地址，修改时原对象也会受到影响
+  * `Object.assign`
+  * `展开运算符(...)`
+* 深拷贝: 完全拷贝一个新对象，修改时原对象不再受到任何影响
+  * `JSON.parse(JSON.stringify(obj))`: 性能最快
+  :::tip 注意
+  * 具有循环引用的对象时，报错
+  * 当值为函数或undefined时，无法拷贝
+  :::
+  * 递归进行逐一赋值
 
-::: danger
-This is a dangerous warning
-:::
+### new运算符的执行过程
+  * 新生成一个对象
+  * 链接到原型: `obj.__proto__ = Con.prototype`
+  * 绑定this: `apply`
+  * 返回新对象
+
+### instanceof原理
+能在实例的 原型对象链 中找到该构造函数的prototype属性所指向的 原型对象，就返回true。即:
+```js
+// __proto__: 代表原型对象链
+instance.[__proto__...] === instance.constructor.prototype
+// return true
+```

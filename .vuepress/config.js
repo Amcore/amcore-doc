@@ -41,6 +41,12 @@ module.exports = {
           link: '/html/meta'
         }]
       }, {
+        text: 'CSS',
+        items: [{
+          text: 'css knowledge',
+          link: '/css/'
+        }]
+      }, {
         text: '工具使用',
         items: [{
           text: 'Git原理',
@@ -113,6 +119,12 @@ module.exports = {
       children: [
         '/html/box',
         '/html/meta',
+      ]
+    }, {
+      title: 'CSS',
+      collapsable: false,
+      children: [
+        '/css/'
       ]
     }, {
       title: '工具使用',
