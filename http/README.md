@@ -9,7 +9,7 @@ lang: zh-CN
 所有的WWW文件都必须遵守这个标准。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。
 
 
-#### http方法
+### http方法
 HTTP 支持几种不同的请求命令，这些命令被称为 HTTP 方法(HTTP method)。每 条 HTTP 请求报文都包含一个方法。这个方法会告诉服务器要执行什么动作(获取 一个 Web 页面、运行一个网关程序、删除一个文件等)。
 |  HTTP方法 | 描述 |
 | ------ | ------ |
@@ -18,3 +18,78 @@ HTTP 支持几种不同的请求命令，这些命令被称为 HTTP 方法(HTTP 
 | DELETE | 从服务器中删除命名资源 |
 | POST | 将客户端数据发送到一个服务器网关应用程序 |
 | HEAD | 仅发送命名资源响应中的 HTTP 首部 |
+
+![prototype关系图](../assets/images/get_post.jpg)
+
+### http/https 协议
+* 1.0 协议缺陷:
+  * 无法复用链接，完成即断开，重新慢启动和 TCP 3次握手
+  * head of line blocking: 线头阻塞，导致请求之间互相影响
+* 1.1 改进:
+  * 长连接(默认 keep-alive)，复用
+  * host 字段指定对应的虚拟站点
+  * 新增功能:
+    * 断点续传
+    * 身份认证
+    * 状态管理
+    * cache 缓存
+      * Cache-Control
+      * Expires
+      * Last-Modified
+      * Etag
+* 2.0:
+  * 多路复用
+  * 二进制分帧层: 应用层和传输层之间
+  * 首部压缩
+  * 服务端推送
+* https: 较为安全的网络传输协议
+  * 证书(公钥)
+  * SSL 加密
+  * 端口 443
+
+* TCP:
+  * 三次握手
+    :::tip 三次握手
+      * 客户端发送 syn(同步序列编号) 请求，进入 syn_send 状态，等待确认
+      * 服务端接收并确认 syn 包后发送 syn+ack 包，进入 syn_recv 状态
+      * 客户端接收 syn+ack 包后，发送 ack 包，双方进入 established 状态
+    :::
+  * 四次挥手
+    :::tip 四次握手
+      * 客户端 -- FIN --> 服务端， FIN—WAIT
+      * 服务端 -- ACK --> 客户端， CLOSE-WAIT
+      * 服务端 -- ACK,FIN --> 客户端， LAST-ACK
+      * 客户端 -- ACK --> 服务端，CLOSED
+    :::
+  * 滑动窗口: 流量控制
+  * 拥塞处理
+
+* 缓存策略: 可分为 强缓存 和 协商缓存
+  * Cache-Control/Expires: 浏览器判断缓存是否过期，未过期时，直接使用强缓存，Cache-Control的 max-age 优先级高Expires
+  * 当缓存已经过期时，使用协商缓存
+    * 唯一标识方案: Etag(response 携带) & If-None-Match(request携带，上一次返回的 Etag): 服务器判断资源是否被修改
+    * 最后一次修改时间: Last-Modified(response) & If-Modified-Since (request，上一次返回的Last-Modified)
+      * 如果一致，则直接返回 304 通知浏览器使用缓存
+      * 如不一致，则服务端返回新的资源
+  * Last-Modified 缺点：
+    * 周期性修改，但内容未变时，会导致缓存失效
+    * 最小粒度只到 s， s 以内的改动无法检测到
+  * Etag 的优先级高于 Last-Modified
+
+### 跨域
+  * JSONP: 利用`<script>`标签不受跨域限制的特点，缺点是只能支持 get 请求
+    ```js
+    function jsonp(url, jsonpCallback, success) {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.type = 'text/javascript'
+      window[jsonpCallback] = function(data) {
+        success && success(data)
+      }
+      document.body.appendChild(script)
+    }
+    ```
+  * 设置 CORS: Access-Control-Allow-Origin：*
+  * postMessage
+

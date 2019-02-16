@@ -19,6 +19,12 @@ module.exports = {
           text: '双向绑定原理',
           link: '/vue/binding'
         }, {
+          text: '生命周期',
+          link: '/vue/lifecycle'
+        }, {
+          text: 'virtual-dom',
+          link: '/vue/virtual-dom'
+        }, {
           text: 'render函数',
           link: '/vue/render'
         }]
@@ -45,6 +51,12 @@ module.exports = {
         items: [{
           text: 'css knowledge',
           link: '/css/'
+        }]
+      }, {
+        text: '浏览器',
+        items: [{
+          text: '流浪器',
+          link: '/browser/'
         }]
       }, {
         text: '工具使用',
@@ -104,6 +116,8 @@ module.exports = {
       children: [
         '/vue/',
         '/vue/binding',
+        '/vue/lifecycle',
+        '/vue/virtual-dom',
         '/vue/render'
       ]
     }, {
@@ -125,6 +139,12 @@ module.exports = {
       collapsable: false,
       children: [
         '/css/'
+      ]
+    }, {
+      title: '浏览器',
+      collapsable: false,
+      children: [
+        '/browser/'
       ]
     }, {
       title: '工具使用',
