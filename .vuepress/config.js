@@ -45,6 +45,9 @@ module.exports = {
         }, {
           text: 'meta标签',
           link: '/html/meta'
+        }, {
+          text: '回流与重绘',
+          link: '/html/backflow-redraw'
         }]
       }, {
         text: 'CSS',
@@ -133,6 +136,7 @@ module.exports = {
       children: [
         '/html/box',
         '/html/meta',
+        '/html/backflow-redraw'
       ]
     }, {
       title: 'CSS',
