@@ -35,12 +35,6 @@ lang: zh-CN
   :::
   * 递归进行逐一赋值
 
-### new运算符的执行过程
-  * 新生成一个对象
-  * 链接到原型: `obj.__proto__ = Con.prototype`
-  * 绑定this: `apply`
-  * 返回新对象
-
 ### instanceof原理
 能在实例的 原型对象链 中找到该构造函数的prototype属性所指向的 原型对象，就返回true。即:
 ```js
@@ -49,6 +43,12 @@ instance.[__proto__...] === instance.constructor.prototype
 
 // return true
 ```
+### new 操作符做了什么?
+`const obj = new Base()`
+该一步共做了三件事，即
+* `var obj = {}` // 创建一个空对象
+* `obj.__proto__ = Base.prototype` // 我们将这个空对象的__proto__成员指向了Base函数对象prototype成员对象
+* `Base.call(obj)` // 我们将Base函数对象的this指针替换成obj
 ### 继承
 在 JS 中，继承通常指的便是 原型链继承，也就是通过指定原型，并可以通过原型链继承原型上的属性或者方法。
 * 最优化: 圣杯模式
