@@ -1,6 +1,6 @@
 ---
 home: true
-actionText: 磨好刀刀杀尽天下狗 →
+actionText: 磨好刀刀 →
 actionLink: /js/
 ---
 

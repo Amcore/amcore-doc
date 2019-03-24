@@ -95,6 +95,9 @@ module.exports = {
         text: '模拟call、apply',
         link: '/js/call_apply'
       }, {
+        text: '正则',
+        link: '/js/regexp'
+      }, {
         text: '冒泡排序动画',
         link: '/js/sortAnimate'
       }]
@@ -111,6 +114,7 @@ module.exports = {
         '/js/module',
         '/js/prototype',
         '/js/call_apply',
+        '/js/regexp',
         '/js/sortAnimate'
       ]
     }, {
