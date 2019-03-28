@@ -4,8 +4,8 @@
   "description": "--- home: true actionText: 磨好刀刀杀尽天下狗 → actionLink: /js/ ---",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev",
-    "docs:build": "vuepress build",
+    "dev": "vuepress dev",
+    "build": "vuepress build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

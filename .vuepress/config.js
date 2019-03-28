@@ -77,6 +77,9 @@ module.exports = {
         text: 'JS中的this',
         link: '/js/this',
       }, {
+        text: '事件循环',
+        link: '/js/eventLoop',
+      }, {
         text: 'promise',
         link: '/js/promise'
       }, {
@@ -108,6 +111,7 @@ module.exports = {
       children: [
         '/js/',
         '/js/this',
+        '/js/eventLoop',
         '/js/promise',
         '/js/async',
         '/js/generator',
