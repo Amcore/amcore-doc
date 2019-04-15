@@ -1,7 +1,7 @@
 {
   "name": "amcore-doc",
   "version": "1.0.0",
-  "description": "--- home: true actionText: 磨好刀刀杀尽天下狗 → actionLink: /js/ ---",
+  "description": "--- home: true actionText: 磨好刀刀 → actionLink: /js/ ---",
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev",

@@ -49,6 +49,20 @@ instance.[__proto__...] === instance.constructor.prototype
 * `var obj = {}` // 创建一个空对象
 * `obj.__proto__ = Base.prototype` // 我们将这个空对象的__proto__成员指向了Base函数对象prototype成员对象
 * `Base.call(obj)` // 我们将Base函数对象的this指针替换成obj
+实现
+```js
+function New (fun) {
+  var res = {}
+  if (fun.prototype !== null) {
+    res.__proto__ === res.prototype
+  }
+  var ret = func.apply(res, Array.prototype.slice.call(argument, 1))
+  if ((typeof ret === 'object' || typeof ret === 'function') && ret !== null) {
+    return ret
+  }
+  return res
+}
+```
 ### 继承
 在 JS 中，继承通常指的便是 原型链继承，也就是通过指定原型，并可以通过原型链继承原型上的属性或者方法。
 * 最优化: 圣杯模式
