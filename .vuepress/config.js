@@ -16,6 +16,12 @@ module.exports = {
           text: 'Vue',
           link: '/vue/'
         }, {
+          text: 'Object的侦测方式',
+          link: '/vue/objectListener'
+        }, {
+          text: 'Array的侦测方式',
+          link: '/vue/arrayListener'
+        }, {
           text: '双向绑定原理',
           link: '/vue/binding'
         }, {
@@ -126,6 +132,8 @@ module.exports = {
       collapsable: false,
       children: [
         '/vue/',
+        '/vue/objectListener',
+        '/vue/arrayListener',
         '/vue/binding',
         '/vue/lifecycle',
         '/vue/virtual-dom',

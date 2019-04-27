@@ -131,3 +131,12 @@ arr.prototype.flat = function() {
     this.toString().split(',').map(item => +item )
 }
 ```
+:::tip 改变数组本身方法
+* `push`
+* `pop`
+* `shift`
+* `unshift`
+* `splice`
+* `sort`
+* `reverse`
+:::
