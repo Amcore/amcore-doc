@@ -68,6 +68,12 @@ module.exports = {
           link: '/browser/'
         }]
       }, {
+        text: '微服务',
+        items: [{
+          text: '前端架构',
+          link: '/microservice/'
+        }]
+      }, {
         text: '工具使用',
         items: [{
           text: 'Git原理',
@@ -165,6 +171,12 @@ module.exports = {
       collapsable: false,
       children: [
         '/browser/'
+      ]
+    }, {
+      title: '微服务',
+      collapsable: false,
+      children: [
+        '/microservice/'
       ]
     }, {
       title: '工具使用',
