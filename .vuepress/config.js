@@ -89,6 +89,9 @@ module.exports = {
         text: 'JS中的this',
         link: '/js/this',
       }, {
+        text: '函数执行上下文',
+        link: '/js/context',
+      }, {
         text: '事件循环',
         link: '/js/eventLoop',
       }, {
@@ -123,6 +126,7 @@ module.exports = {
       children: [
         '/js/',
         '/js/this',
+        '/js/context',
         '/js/eventLoop',
         '/js/promise',
         '/js/async',
