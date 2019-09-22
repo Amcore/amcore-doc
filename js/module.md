@@ -2,7 +2,86 @@
 title: module
 lang: zh-CN
 ---
+### CommmonJs
+在SPA(单页面应用)出现之前，一个web应用由很多单独的页面组成，每个页面的逻辑都相对简单，
+使用一些简单的模块创建方法就可以很好的构建这些页面的逻辑了。
+直到JavaScript被应用到服务器端，事情发生了变化。
+在服务器端，逻辑就复杂多了，也不能像前端一样各个页面去分担不同的功能，
+所以必须要有一种模块化的方式来管理代码。**NodeJS选择了CommonJS作为它的模块化的规范**。
 
+CommonJS使用exports导出需要被其他模块使用的对象；使用require导入需要使用的被其他模块暴露出来的对象。
+
+下面是一个CommonJS的示例：
+
+```js
+var todoList = {
+  showList: function () {
+    var todoItem = require('todoItem')
+    if (todoItem.needShowTime) {
+      var todoTime = require('todoTime')
+      todoTime.showTime()
+    }
+    console.log('showList')
+  }
+}
+
+exports.todoList = todoList
+
+```
+CommonJS是一种同步的模块加载方式。
+在执行require(‘todoItem’)的时候，会一直等到todoItem被加载完，才会执行后面的代码。
+这在服务器端是可行的，因为需要require的资源在本地，所以获取资源并不会有太大的时间消耗。
+但当开发者想把这种模式应用于前端的时候，发现同步加载不是一个好办法。
+在加载require(‘todoItem’)的时候，需要去远端的服务器上获取模块，
+在同步的情况下，获取模块的过程中，不能执行其他任何操作，就会造成页面的假死，影响用户体验。
+
+### AMD
+在CommonJS之后，为了创建适合前端的模块化规范，就有了AMD (异步模块定义)。
+AMD是一种可以进行异步加载的模块化规范，因而它很适用于前端开发。
+
+AMD使用define定义模块；使用require加载依赖。下面的代码实现了CommonJS的示例中的相同功能。
+```js
+define('todoList', ['todoItem'], (todoItem) => {
+  var todoList = {
+    showList: function () {
+      if (todoItem.showTime) {
+        require(['todoItem'], (todoItem) => {
+          todoTime.showTime()
+        })
+        console.log('showList')
+      }
+    }
+  }
+  return todoList
+})
+```
+AMD与CommonJs最大的不同体现在require上。在CommonJs中，require方法只有一个参数，
+就是需要被require的module，而在AMD中，require方法有两个参数，一个是被require的module，
+一个是callback函数。
+
+AMD在require的模块加载完成后，会调用callback方法。
+而在获取require的模块的过程中，是可以继续执行后面的代码的，如console.log(‘showlist’);，
+这样页面就可以继续响应用户的其他操作，这就是AMD异步的加载方式所带来的好处。
+常用的RequireJS就是这样的一种机制，而AMD是RequireJS在推广过程中对模块定义的规范化产出。
+
+```js
+// CommonJS 同步加载模块
+var todoTime = require('todoTime');
+todoTime.showTime();
+
+// AMD 异步加载模块
+require(['todoTime'], (todoTime) => {
+  todoTime.showTime();
+});
+```
+
+### CMD
+CMD和AMD一样，都是异步加载模块的规范。当讨论到CMD和AMD的不同时，通常会说AMD是依赖前置，而CMD是依赖就近。
+:::tip
+AMD在后来也实现了依赖就近，文中在讲述AMD时所给的示例，就可以算是一种依赖就近，只是AMD的官方还是比较推荐依赖前置这种写法。
+:::
+
+### ES6中的模块
 在ES6 Module出现之前，模块化一直是前端开发者讨论的重点，面对日益增长的需求和代码，需要一种方案来将臃肿的代码拆分成一个个小模块，从而推出了AMD,CMD和CommonJs这3种模块化方案，前者用在浏览器端，后面2种用在服务端，直到ES6 Module出现
 模块化
 
@@ -21,7 +100,7 @@ lang: zh-CN
 ES6 Module默认目前还没有被浏览器支持，需要使用babel
 :::
 
-### 特点
+#### 特点
 1. ES6 Module是静态的，也就是说它是在编译阶段运行，和var以及function一样具有提升效果（这个特点使得它支持tree shaking）
 2. 自动采用严格模式（顶层的this返回undefined）
 3. ES6 Module支持使用export {<变量>}导出具名的接口，或者export default导出匿名的接口
