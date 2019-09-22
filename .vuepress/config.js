@@ -74,6 +74,18 @@ module.exports = {
           link: '/microservice/'
         }]
       }, {
+        text: '前端工程化',
+        items: [{
+          text: '前端工程化',
+          link: '/project/'
+        }]
+      }, {
+        text: '前端工程化',
+        items: [{
+          text: '前端工程化',
+          link: '/project/'
+        }]
+      }, {
         text: '工具使用',
         items: [{
           text: 'Git原理',
@@ -181,6 +193,12 @@ module.exports = {
       collapsable: false,
       children: [
         '/microservice/'
+      ]
+    }, {
+      title: '前端工程化',
+      collapsable: false,
+      children: [
+        '/project/'
       ]
     }, {
       title: '工具使用',
