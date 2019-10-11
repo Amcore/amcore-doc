@@ -26,9 +26,10 @@ cat id_rsa.${keyName}.pub | pbcopy
 #### 配置ssh文件，免密码登入
 在.ssh目录下创建config文件
 ```
-Host github.com
+Host ${webpath}.com
+HostName ${webpath}.com
+user ${username}
 IdentityFile ~/.ssh/id_rsa.${keyName}
-User you username
 ```
 ::: tip
   Host：对应平台网址
