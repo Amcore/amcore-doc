@@ -88,11 +88,11 @@ module.exports = {
       }, {
         text: '工具使用',
         items: [{
-          text: 'Git原理',
-          link: '/git/'
+          text: 'Git',
+          link: '/tool/git/'
         }, {
-          text: 'Git使用',
-          link: '/git/use'
+          text: 'webpack',
+          link: '/tool/webpack/'
         }]
       }]
     }, {
@@ -204,8 +204,8 @@ module.exports = {
       title: '工具使用',
       collapsable: false,
       children: [
-        '/git/',
-        '/git/use'
+        '/tool/git/',
+        '/tool/webpack/'
       ]
     }]
   },
