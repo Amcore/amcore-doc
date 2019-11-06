@@ -80,10 +80,10 @@ module.exports = {
           link: '/project/'
         }]
       }, {
-        text: '前端工程化',
+        text: '性能优化',
         items: [{
-          text: '前端工程化',
-          link: '/project/'
+          text: '性能优化',
+          link: '/optimize/'
         }]
       }, {
         text: '工具使用',
@@ -199,6 +199,12 @@ module.exports = {
       collapsable: false,
       children: [
         '/project/'
+      ]
+    }, {
+      title: '性能优化',
+      collapsable: false,
+      children: [
+        '/optimize/'
       ]
     }, {
       title: '工具使用',
