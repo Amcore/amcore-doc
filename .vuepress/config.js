@@ -93,6 +93,9 @@ module.exports = {
         }, {
           text: 'webpack',
           link: '/tool/webpack/'
+        }, {
+          text: '规范工具',
+          link: '/tool/standard/'
         }]
       }]
     }, {
@@ -211,7 +214,8 @@ module.exports = {
       collapsable: false,
       children: [
         '/tool/git/',
-        '/tool/webpack/'
+        '/tool/webpack/',
+        '/tool/standard/'
       ]
     }]
   },
